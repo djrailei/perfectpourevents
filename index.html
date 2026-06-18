@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premier Mobile Bartending</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--gold:#d4af37;
+--dark:#0f0f0f;
+--card:#181818;
+--text:#f5f5f5;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#000;
+color:var(--text);
+line-height:1.6;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+nav{
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(0,0,0,.95);
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:1px solid rgba(212,175,55,.3);
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:28px;
+color:var(--gold);
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:25px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
+url("https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+max-width:900px;
+}
+
+.hero h1{
+font-size:4rem;
+font-family:'Playfair Display',serif;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:30px;
+}
+
+.btn{
+background:var(--gold);
+color:black;
+padding:15px 30px;
+font-weight:600;
+border-radius:40px;
+text-decoration:none;
+display:inline-block;
+}
+
+section{
+padding:90px 8%;
+}
+
+.section-title{
+font-size:2.5rem;
+text-align:center;
+margin-bottom:50px;
+font-family:'Playfair Display',serif;
+color:var(--gold);
+}
+
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:12px;
+}
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:var(--card);
+padding:25px;
+border-radius:12px;
+border:1px solid rgba(212,175,55,.15);
+}
+
+.card h3{
+color:var(--gold);
+margin-bottom:10px;
+}
+
+.search-bar{
+max-width:500px;
+margin:0 auto 25px;
+}
+
+.search-bar input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:40px;
+font-size:16px;
+}
+
+.filters{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+margin-bottom:30px;
+}
+
+.filter-btn{
+padding:10px 18px;
+border:none;
+cursor:pointer;
+border-radius:30px;
+background:#222;
+color:white;
+}
+
+.filter-btn.active{
+background:var(--gold);
+color:black;
+}
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+}
+
+.cocktail{
+background:var(--card);
+border-radius:12px;
+overflow:hidden;
+}
+
+.cocktail-header{
+padding:20px;
+cursor:pointer;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.cocktail-header h3{
+color:var(--gold);
+}
+
+.recipe{
+display:none;
+padding:20px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+.recipe ul{
+padding-left:20px;
+margin-bottom:15px;
+}
+
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.price-card{
+background:var(--card);
+padding:35px;
+border-radius:12px;
+text-align:center;
+border:1px solid rgba(212,175,55,.3);
+}
+
+.price{
+font-size:40px;
+color:var(--gold);
+margin:20px 0;
+}
+
+form{
+max-width:700px;
+margin:auto;
+display:grid;
+gap:15px;
+}
+
+input,textarea{
+padding:15px;
+border:none;
+border-radius:8px;
+font-size:16px;
+}
+
+textarea{
+height:150px;
+}
+
+button{
+padding:15px;
+background:var(--gold);
+border:none;
+font-weight:bold;
+cursor:pointer;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#050505;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.6rem;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<nav>
+<div class="logo">Premier Mobile Bartending</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#menu">Cocktails</a></li>
+<li><a href="#pricing">Packages</a></li>
+<li><a href="#contact">Book</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="hero-content">
+<h1>Luxury Mobile Bartending Experience</h1>
+<p>Professional bartenders for weddings, private parties, corporate events, galas, and celebrations.</p>
+<a href="#contact" class="btn">Request a Quote</a>
+</div>
+</section>
+
+<section id="about">
+<h2 class="section-title">About Us</h2>
+
+<div class="about">
+<img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?auto=format&fit=crop&w=1200&q=80">
+
+<div>
+<h3>Craft Cocktails. Exceptional Service.</h3>
+<br>
+<p>
+We provide premium mobile bartending services with custom cocktail menus,
+licensed bartenders, professional bar setups, and unforgettable guest experiences.
+</p>
+<br>
+<p>
+Serving weddings, private parties, corporate events, fundraisers, and luxury gatherings.
+</p>
+</div>
+</div>
+</section>
+
+<section id="services">
+<h2 class="section-title">Services</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>Weddings</h3>
+<p>Custom cocktail menus and full bar service.</p>
+</div>
+
+<div class="card">
+<h3>Corporate Events</h3>
+<p>Professional beverage service for business functions.</p>
+</div>
+
+<div class="card">
+<h3>Private Parties</h3>
+<p>Birthdays, anniversaries, holiday parties and celebrations.</p>
+</div>
+
+<div class="card">
+<h3>Signature Cocktail Design</h3>
+<p>Custom drinks created exclusively for your event.</p>
+</div>
+
+</div>
+</section>
+
+<section id="menu">
+
+<h2 class="section-title">Cocktail Menu</h2>
+
+<div class="search-bar">
+<input type="text" id="searchInput" placeholder="Search cocktails...">
+</div>
+
+<div class="filters">
+<button class="filter-btn active" onclick="filterMenu('all')">All</button>
+<button class="filter-btn" onclick="filterMenu('vodka')">Vodka</button>
+<button class="filter-btn" onclick="filterMenu('rum')">Rum</button>
+<button class="filter-btn" onclick="filterMenu('gin')">Gin</button>
+<button class="filter-btn" onclick="filterMenu('tequila')">Tequila</button>
+<button class="filter-btn" onclick="filterMenu('whiskey')">Whiskey</button>
+<button class="filter-btn" onclick="filterMenu('signature')">Signature</button>
+</div>
+
+<div class="menu-grid">
+
+<div class="cocktail" data-category="vodka">
+<div class="cocktail-header" onclick="toggleRecipe(this)">
+<h3>Moscow Mule</h3>
+<span>+</span>
+</div>
+<div class="recipe">
+<h4>Ingredients</h4>
+<ul>
+<li>2 oz Vodka</li>
+<li>4 oz Ginger Beer</li>
+<li>0.5 oz Lime Juice</li>
+</ul>
+<h4>Recipe</h4>
+<p>Build over ice in a copper mug and stir gently.</p>
+</div>
+</div>
+
+<div class="cocktail" data-category="gin">
+<div class="cocktail-header" onclick="toggleRecipe(this)">
+<h3>Tom Collins</h3>
+<span>+</span>
+</div>
+<div class="recipe">
+<h4>Ingredients</h4>
+<ul>
+<li>2 oz Gin</li>
+<li>1 oz Lemon Juice</li>
+<li>0.5 oz Simple Syrup</li>
+<li>Soda Water</li>
+</ul>
+<h4>Recipe</h4>
+<p>Shake ingredients and top with soda.</p>
+</div>
+</div>
+
+<div class="cocktail" data-category="tequila">
+<div class="cocktail-header" onclick="toggleRecipe(this)">
+<h3>Margarita</h3>
+<span>+</span>
+</div>
+<div class="recipe">
+<h4>Ingredients</h4>
+<ul>
+<li>2 oz Tequila</li>
+<li>1 oz Triple Sec</li>
+<li>1 oz Lime Juice</li>
+</ul>
+<h4>Recipe</h4>
+<p>Shake and strain into a salt-rimmed glass.</p>
+</div>
+</div>
+
+<div class="cocktail" data-category="whiskey">
+<div class="cocktail-header" onclick="toggleRecipe(this)">
+<h3>Old Fashioned</h3>
+<span>+</span>
+</div>
+<div class="recipe">
+<h4>Ingredients</h4>
+<ul>
+<li>2 oz Bourbon</li>
+<li>2 dashes Bitters</li>
+<li>Sugar Cube</li>
+</ul>
+<h4>Recipe</h4>
+<p>Stir with ice and garnish with orange peel.</p>
+</div>
+</div>
+
+<div class="cocktail" data-category="signature">
+<div class="cocktail-header" onclick="toggleRecipe(this)">
+<h3>Golden Sunset</h3>
+<span>+</span>
+</div>
+<div class="recipe">
+<h4>Ingredients</h4>
+<ul>
+<li>Vodka</li>
+<li>Peach Schnapps</li>
+<li>Orange Juice</li>
+<li>Grenadine</li>
+</ul>
+<h4>Recipe</h4>
+<p>Shake and serve over ice with a sunset float.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="pricing">
+<h2 class="section-title">Event Packages</h2>
+
+<div class="pricing">
+
+<div class="price-card">
+<h3>Essential</h3>
+<div class="price">$499+</div>
+<p>Up to 50 Guests</p>
+<p>Professional Bartender</p>
+<p>Basic Bar Setup</p>
+</div>
+
+<div class="price-card">
+<h3>Premium</h3>
+<div class="price">$899+</div>
+<p>Up to 100 Guests</p>
+<p>2 Bartenders</p>
+<p>Custom Cocktail Menu</p>
+</div>
+
+<div class="price-card">
+<h3>Luxury</h3>
+<div class="price">Custom</div>
+<p>Large Events</p>
+<p>Multiple Bars</p>
+<p>Signature Cocktails</p>
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Request a Quote</h2>
+
+<form>
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="tel" placeholder="Phone Number">
+<input type="date">
+<textarea placeholder="Tell us about your event"></textarea>
+<button type="submit">Submit Inquiry</button>
+</form>
+</section>
+
+<footer>
+<p>© 2026 Premier Mobile Bartending | Weddings • Corporate Events • Private Parties</p>
+</footer>
+
+<script>
+
+function toggleRecipe(element){
+const recipe = element.nextElementSibling;
+
+if(recipe.style.display === "block"){
+recipe.style.display = "none";
+} else {
+recipe.style.display = "block";
+}
+}
+
+function filterMenu(category){
+
+const items = document.querySelectorAll(".cocktail");
+
+items.forEach(item=>{
+if(category === "all"){
+item.style.display="block";
+}else{
+item.style.display =
+item.dataset.category === category ? "block" : "none";
+}
+});
+
+document.querySelectorAll(".filter-btn").forEach(btn=>{
+btn.classList.remove("active");
+});
+
+event.target.classList.add("active");
+}
+
+document.getElementById("searchInput").addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".cocktail").forEach(item=>{
+
+let text=item.innerText.toLowerCase();
+
+item.style.display=text.includes(value)
+? "block"
+: "none";
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
