@@ -1,601 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premier Mobile Bartending</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Windy City Pour | Premium Mobile Bartending Chicago</title>
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Reset & Variable Colors */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-input: #1e1e1e;
+            --accent-gold: #e5c158;
+            --hover-gold: #f3cf55;
+            --text-light: #f9f9f9;
+            --text-muted: #aaaaaa;
+            --font-headings: 'Playfair Display', Georgia, serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-:root{
---gold:#d4af37;
---dark:#0f0f0f;
---card:#181818;
---text:#f5f5f5;
-}
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            letter-spacing: 0.3px;
+        }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+        /* Base Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-body{
-font-family:'Poppins',sans-serif;
-background:#000;
-color:var(--text);
-line-height:1.6;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-html{
-scroll-behavior:smooth;
-}
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(229, 193, 88, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(229, 193, 88, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(229, 193, 88, 0); }
+        }
 
-nav{
-position:sticky;
-top:0;
-z-index:999;
-background:rgba(0,0,0,.95);
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:1px solid rgba(212,175,55,.3);
-}
+        /* High-Impact Hero Section */
+        header {
+            position: relative;
+            background: 
+                radial-gradient(circle at center, rgba(229, 193, 88, 0.15) 0%, rgba(0,0,0,0) 60%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(10, 10, 10, 1) 95%), 
+                url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1600') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.2s ease-out;
+            border-bottom: 1px solid rgba(229, 193, 88, 0.1);
+        }
 
-.logo{
-font-family:'Playfair Display',serif;
-font-size:28px;
-color:var(--gold);
-}
+        header h1 {
+            font-family: var(--font-headings);
+            font-size: 4.2rem;
+            font-weight: 800;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+            text-shadow: 2px 4px 20px rgba(0, 0, 0, 0.8);
+        }
+        
+        header h1 span {
+            color: var(--accent-gold);
+            display: block;
+            font-style: italic;
+            font-size: 3.8rem;
+            font-weight: 400;
+            text-transform: none;
+            margin-top: 5px;
+        }
 
-nav ul{
-display:flex;
-list-style:none;
-gap:25px;
-}
+        header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            max-width: 650px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+            animation-delay: 0.2s;
+            text-shadow: 1px 2px 10px rgba(0, 0, 0, 0.9);
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-}
+        /* Global Layout Components */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
 
-.hero{
-height:100vh;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
-url("https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=1600&q=80");
-background-size:cover;
-background-position:center;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-}
+        .section-title {
+            font-family: var(--font-headings);
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 600;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 20px;
+        }
 
-.hero-content{
-max-width:900px;
-}
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent-gold);
+        }
 
-.hero h1{
-font-size:4rem;
-font-family:'Playfair Display',serif;
-margin-bottom:20px;
-}
+        /* SERVICES SECTION */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
 
-.hero p{
-font-size:1.2rem;
-margin-bottom:30px;
-}
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid #1c1c1c;
+            border-radius: 4px;
+            padding: 50px 35px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-.btn{
-background:var(--gold);
-color:black;
-padding:15px 30px;
-font-weight:600;
-border-radius:40px;
-text-decoration:none;
-display:inline-block;
-}
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 15px 30px rgba(229, 193, 88, 0.05);
+        }
 
-section{
-padding:90px 8%;
-}
+        .service-icon {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+        }
 
-.section-title{
-font-size:2.5rem;
-text-align:center;
-margin-bottom:50px;
-font-family:'Playfair Display',serif;
-color:var(--gold);
-}
+        .service-card h3 {
+            font-family: var(--font-headings);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
 
-.about{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.7;
+        }
 
-.about img{
-width:100%;
-border-radius:12px;
-}
+        /* MENU SECTION */
+        .liquor-group {
+            margin-bottom: 80px;
+        }
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+        .liquor-title {
+            font-family: var(--font-headings);
+            font-size: 2rem;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent-gold);
+        }
 
-.card{
-background:var(--card);
-padding:25px;
-border-radius:12px;
-border:1px solid rgba(212,175,55,.15);
-}
+        .cocktail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
 
-.card h3{
-color:var(--gold);
-margin-bottom:10px;
-}
+        .cocktail-card {
+            background-color: var(--bg-card);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s;
+        }
 
-.search-bar{
-max-width:500px;
-margin:0 auto 25px;
-}
+        .cocktail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        }
 
-.search-bar input{
-width:100%;
-padding:15px;
-border:none;
-border-radius:40px;
-font-size:16px;
-}
+        .cocktail-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            filter: grayscale(15%);
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), filter 0.4s;
+        }
 
-.filters{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin-bottom:30px;
-}
+        .cocktail-card:hover .cocktail-img {
+            transform: scale(1.04);
+            filter: grayscale(0%);
+        }
 
-.filter-btn{
-padding:10px 18px;
-border:none;
-cursor:pointer;
-border-radius:30px;
-background:#222;
-color:white;
-}
+        .cocktail-info {
+            padding: 30px;
+        }
 
-.filter-btn.active{
-background:var(--gold);
-color:black;
-}
+        .badge {
+            background-color: transparent;
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+        }
 
-.menu-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
-}
+        .badge.signature {
+            border-color: #b388ff;
+            color: #b388ff;
+        }
 
-.cocktail{
-background:var(--card);
-border-radius:12px;
-overflow:hidden;
-}
+        .cocktail-name {
+            font-family: var(--font-headings);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
 
-.cocktail-header{
-padding:20px;
-cursor:pointer;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
+        .recipe-section {
+            margin-top: 20px;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+        }
 
-.cocktail-header h3{
-color:var(--gold);
-}
+        .recipe-section h4 {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
 
-.recipe{
-display:none;
-padding:20px;
-border-top:1px solid rgba(255,255,255,.1);
-}
+        .ingredients-list {
+            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
 
-.recipe ul{
-padding-left:20px;
-margin-bottom:15px;
-}
+        .ingredients-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+        }
 
-.pricing{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
+        .ingredients-list li::before {
+            content: "—";
+            color: var(--accent-gold);
+            position: absolute;
+            left: 0;
+            font-weight: 300;
+        }
 
-.price-card{
-background:var(--card);
-padding:35px;
-border-radius:12px;
-text-align:center;
-border:1px solid rgba(212,175,55,.3);
-}
+        .instructions {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            line-height: 1.6;
+        }
 
-.price{
-font-size:40px;
-color:var(--gold);
-margin:20px 0;
-}
+        /* BOOKING FORM SECTION */
+        .booking-section {
+            background-color: var(--bg-card);
+            border-radius: 4px;
+            padding: 60px 50px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border: 1px solid #1a1a1a;
+        }
 
-form{
-max-width:700px;
-margin:auto;
-display:grid;
-gap:15px;
-}
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
 
-input,textarea{
-padding:15px;
-border:none;
-border-radius:8px;
-font-size:16px;
-}
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
 
-textarea{
-height:150px;
-}
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+        }
 
-button{
-padding:15px;
-background:var(--gold);
-border:none;
-font-weight:bold;
-cursor:pointer;
-}
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            background-color: var(--bg-input);
+            border: 1px solid #2a2a2a;
+            color: var(--text-light);
+            padding: 14px 18px;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: all 0.3s ease;
+        }
 
-footer{
-text-align:center;
-padding:30px;
-background:#050505;
-}
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background-color: #222;
+        }
 
-@media(max-width:768px){
+        /* UI Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-gold);
+            color: #000;
+            padding: 16px 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            border: none;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
 
-.hero h1{
-font-size:2.6rem;
-}
+        .btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+        }
 
-.about{
-grid-template-columns:1fr;
-}
+        .btn-hero {
+            animation: fadeInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+            animation-delay: 0.4s;
+        }
 
-nav ul{
-display:none;
-}
+        .btn-submit {
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 15px;
+            animation: pulseGlow 2.5s infinite;
+        }
 
-}
+        /* Footer */
+        footer {
+            background-color: #050505;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 100px;
+            border-top: 1px solid #111;
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
 
-</style>
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.8rem; }
+            header h1 span { font-size: 2.4rem; }
+            .booking-section { padding: 40px 20px; }
+            .container { padding: 50px 15px; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<nav>
-<div class="logo">Premier Mobile Bartending</div>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#menu">Cocktails</a></li>
-<li><a href="#pricing">Packages</a></li>
-<li><a href="#contact">Book</a></li>
-</ul>
-</nav>
+    <!-- Hero Header with Multi-layer Pop Background -->
+    <header>
+        <h1>The Windy City Pour <span>Mobile Cocktail Lounge</span></h1>
+        <p>Bespoke Event Bartending &bull; Chicago, IL</p>
+        <a href="#book" class="btn btn-hero">Reserve Your Date</a>
+    </header>
 
-<section class="hero">
-<div class="hero-content">
-<h1>Luxury Mobile Bartending Experience</h1>
-<p>Professional bartenders for weddings, private parties, corporate events, galas, and celebrations.</p>
-<a href="#contact" class="btn">Request a Quote</a>
-</div>
-</section>
+    <!-- Services Section -->
+    <section class="container">
+        <h2 class="section-title">The Experiences</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div class="service-icon">🥂</div>
+                <h3>Full Bar Service</h3>
+                <p>Tailored for weddings and large corporate celebrations. Includes modern, custom bar setups, premium scratch-made mixers, custom signage, and highly trained mixologists.</p>
+            </div>
 
-<section id="about">
-<h2 class="section-title">About Us</h2>
+            <div class="service-card">
+                <div class="service-icon">🍹</div>
+                <h3>Bespoke Cocktail Catering</h3>
+                <p>Perfect for stylish cocktail parties and private home milestones. We bring specialized artisanal syrups, unique glassware recommendations, and customized menus.</p>
+            </div>
 
-<div class="about">
-<img src="https://images.unsplash.com/photo-1575444758702-4a6b9222336e?auto=format&fit=crop&w=1200&q=80">
+            <div class="service-card">
+                <div class="service-icon">🥃</div>
+                <h3>Mixology Masterclasses</h3>
+                <p>An interactive, spirit-forward tasting experience. Learn the history and technique behind classic cocktails under the direction of an industry professional.</p>
+            </div>
 
-<div>
-<h3>Craft Cocktails. Exceptional Service.</h3>
-<br>
-<p>
-We provide premium mobile bartending services with custom cocktail menus,
-licensed bartenders, professional bar setups, and unforgettable guest experiences.
-</p>
-<br>
-<p>
-Serving weddings, private parties, corporate events, fundraisers, and luxury gatherings.
-</p>
-</div>
-</div>
-</section>
+        </div>
+    </section>
 
-<section id="services">
-<h2 class="section-title">Services</h2>
+    <!-- Menu Section -->
+    <main class="container">
+        <h2 class="section-title">The Cocktail Menu</h2>
 
-<div class="services">
+        <!-- VODKA SECTION -->
+        <section class="liquor-group">
+            <h3 class="liquor-title">Vodka Base</h3>
+            <div class="cocktail-grid">
+                
+                <div class="cocktail-card">
+                    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=500" alt="Classic Moscow Mule" class="cocktail-img">
+                    <div class="cocktail-info">
+                        <span class="badge">Classic Standard</span>
+                        <h4 class="cocktail-name">Moscow Mule</h4>
+                        <div class="recipe-section">
+                            <h4>Ingredients</h4>
+                            <ul class="ingredients-list">
+                                <li>2 oz Vodka</li>
+                                <li>0.5 oz Fresh Lime Juice</li>
+                                <li>4 oz Artisanal Ginger Beer</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="instructions">Combine ingredients in a traditional copper mug packed with crushed ice. Garnish with a fresh lime wheel.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<h3>Weddings</h3>
-<p>Custom cocktail menus and full bar service.</p>
-</div>
+                <div class="cocktail-card">
+                    <img src="https://images.unsplash.com/photo-1574096079513-d8259312b785?q=80&w=500" alt="Lake Shore Lavender Cocktail" class="cocktail-img">
+                    <div class="cocktail-info">
+                        <span class="badge signature">House Signature</span>
+                        <h4 class="cocktail-name">Lake Shore Lavender</h4>
+                        <div class="recipe-section">
+                            <h4>Ingredients</h4>
+                            <ul class="ingredients-list">
+                                <li>2 oz Premium Vodka</li>
+                                <li>0.75 oz Lavender-Infused Syrup</li>
+                                <li>0.75 oz Fresh Lemon Juice</li>
+                                <li>Club Soda float</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="instructions">Vigorously shake with ice, double strain into a chilled coupe, and top with a gentle splash of carbonated club soda.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<h3>Corporate Events</h3>
-<p>Professional beverage service for business functions.</p>
-</div>
+            </div>
+        </section>
 
-<div class="card">
-<h3>Private Parties</h3>
-<p>Birthdays, anniversaries, holiday parties and celebrations.</p>
-</div>
+        <!-- TEQUILA SECTION -->
+        <section class="liquor-group">
+            <h3 class="liquor-title">Tequila Base</h3>
+            <div class="cocktail-grid">
+                
+                <!-- Classic Margarita -->
+                <div class="cocktail-card">
+                    <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=500" alt="Classic Margarita" class="cocktail-img">
+                    <div class="cocktail-info">
+                        <span class="badge">Classic Standard</span>
+                        <h4 class="cocktail-name">Classic Margarita</h4>
+                        <div class="recipe-section">
+                            <h4>Ingredients</h4>
+                            <ul class="ingredients-list">
+                                <li>2 oz Blanco Tequila</li>
+                                <li>1 oz Fresh Lime Juice</li>
+                                <li>0.75 oz Cointreau (Orange Liqueur)</li>
+                                <li>0.25 oz Agave Nectar</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="instructions">Shake all ingredients thoroughly with ice. Strain into a rocks glass over fresh ice with a partial sea salt rim.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="card">
-<h3>Signature Cocktail Design</h3>
-<p>Custom drinks created exclusively for your event.</p>
-</div>
+                <!-- Signature Paloma -->
+                <div class="cocktail-card">
+                    <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?q=80&w=500" alt="Signature Paloma" class="cocktail-img">
+                    <div class="cocktail-info">
+                        <span class="badge signature">House Signature</span>
+                        <h4 class="cocktail-name">The Ruby Paloma</h4>
+                        <div class="recipe-section">
+                            <h4>Ingredients</h4>
+                            <ul class="ingredients-list">
+                                <li>2 oz Reposado Tequila</li>
+                                <li>1.5 oz Fresh Ruby Red Grapefruit Juice</li>
+                                <li>0.5 oz Fresh Lime Juice</li>
+                                <li>0.5 oz Rosemary Simple Syrup</li>
+                                <li>Top with Grapefruit Soda</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="instructions">Shake tequila, juices, and rosemary syrup with ice. Strain into a highball glass over ice, top with grapefruit soda, and garnish with a torched rosemary sprig.</p>
+                        </div>
+                    </div>
+                </div>
 
-</div>
-</section>
+            </div>
+        </section>
 
-<section id="menu">
+        <!-- BOURBON / WHISKEY SECTION -->
+        <section class="liquor-group">
+            <h3 class="liquor-title">Whiskey & Bourbon</h3>
+            <div class="cocktail-grid">
+                
+                <div class="cocktail-card">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=500" alt="Classic Old Fashioned" class="cocktail-img">
+                    <div class="cocktail-info">
+                        <span class="badge">Classic Standard</span>
+                        <h4 class="cocktail-name">Old Fashioned</h4>
+                        <div class="recipe-section">
+                            <h4>Ingredients</h4>
+                            <ul class="ingredients-list">
+                                <li>2 oz Small Batch Bourbon</li>
+                                <li>2 dashes Angostura Bitters</li>
+                                <li>1 Demerara Sugar Cube</li>
+                                <li>Splash of warm water</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="instructions">Muddle sugar and aromatic bitters directly in a heavy rocks glass. Add a singular large cube, pour bourbon, and stir carefully.</p>
+                        </div>
+                    </div>
+                </div>
 
-<h2 class="section-title">Cocktail Menu</h2>
+                <div class="cocktail-card">
+                    <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fafd55?q=80&w=500" alt="The Chicago Smoke Cocktail" class="cocktail-img">
+                    <div class="cocktail-info">
+                        <span class="badge signature">House Signature</span>
+                        <h4 class="cocktail-name">The Chicago Smoke</h4>
+                        <div class="recipe-section">
+                            <h4>Ingredients</h4>
+                            <ul class="ingredients-list">
+                                <li>2 oz Straight Rye Whiskey</li>
+                                <li>0.5 oz Sweet Italian Vermouth</li>
+                                <li>0.25 oz Ancho Reyes Chile Liqueur</li>
+                                <li>Torched Rosemary sprig</li>
+                            </ul>
+                            <h4>Method</h4>
+                            <p class="instructions">Stir liquid ingredients over ice. Strain into a custom glass infused with trapped, aromatic woodsmoke.</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="search-bar">
-<input type="text" id="searchInput" placeholder="Search cocktails...">
-</div>
+            </div>
+        </section>
+    </main>
 
-<div class="filters">
-<button class="filter-btn active" onclick="filterMenu('all')">All</button>
-<button class="filter-btn" onclick="filterMenu('vodka')">Vodka</button>
-<button class="filter-btn" onclick="filterMenu('rum')">Rum</button>
-<button class="filter-btn" onclick="filterMenu('gin')">Gin</button>
-<button class="filter-btn" onclick="filterMenu('tequila')">Tequila</button>
-<button class="filter-btn" onclick="filterMenu('whiskey')">Whiskey</button>
-<button class="filter-btn" onclick="filterMenu('signature')">Signature</button>
-</div>
+    <!-- Booking Form Section -->
+    <section id="book" class="container">
+        <div class="booking-section">
+            <h2 class="section-title" style="margin-bottom: 15px;">Inquire For Service</h2>
+            <p style="text-align: center; color: var(--text-muted); font-weight:300; margin-bottom: 40px;">Provide your event details below to design a tailored beverage proposal.</p>
+            
+            <form action="#" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Event Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                </div>
 
-<div class="menu-grid">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="guests">Estimated Guest Count</label>
+                        <input type="number" id="guests" min="1" required placeholder="e.g. 75">
+                    </div>
+                    <div class="form-group">
+                        <label for="service-type">Preferred Experience</label>
+                        <select id="service-type" required>
+                            <option value="" disabled selected>Select a package...</option>
+                            <option value="full">Full Bar Service</option>
+                            <option value="catering">Bespoke Cocktail Catering</option>
+                            <option value="tasting">Mixology Masterclass</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Venue Location / Neighborhood</label>
+                        <input type="text" id="location" required placeholder="e.g. West Loop, Chicago">
+                    </div>
+                </div>
 
-<div class="cocktail" data-category="vodka">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Moscow Mule</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>2 oz Vodka</li>
-<li>4 oz Ginger Beer</li>
-<li>0.5 oz Lime Juice</li>
-</ul>
-<h4>Recipe</h4>
-<p>Build over ice in a copper mug and stir gently.</p>
-</div>
-</div>
+                <div class="form-group" style="margin-bottom: 35px;">
+                    <label for="notes">Additional Design Intentions / Special Requests</label>
+                    <textarea id="notes" rows="4" placeholder="Tell us about your event goals, spirit preferences, or specific theme..."></textarea>
+                </div>
 
-<div class="cocktail" data-category="vodka">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Paloma</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>2 oz Vodka</li>
-<li>4 oz Ginger Beer</li>
-<li>0.5 oz Lime Juice</li>
-</ul>
-<h4>Recipe</h4>
-<p>Build over ice in a copper mug and stir gently.</p>
-</div>
-</div>
-  
-<div class="cocktail" data-category="gin">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Tom Collins</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>2 oz Gin</li>
-<li>1 oz Lemon Juice</li>
-<li>0.5 oz Simple Syrup</li>
-<li>Soda Water</li>
-</ul>
-<h4>Recipe</h4>
-<p>Shake ingredients and top with soda.</p>
-</div>
-</div>
+                <button type="submit" class="btn btn-submit">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
 
-<div class="cocktail" data-category="gin">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Bang Bang</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>2 oz Gin</li>
-<li>1 oz Lemon Juice</li>
-<li>0.5 oz Simple Syrup</li>
-<li>Soda Water</li>
-</ul>
-<h4>Recipe</h4>
-<p>Shake ingredients and top with soda.</p>
-</div>
-</div>
-  
-<div class="cocktail" data-category="tequila">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Margarita</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>2 oz Tequila</li>
-<li>1 oz Triple Sec</li>
-<li>1 oz Lime Juice</li>
-</ul>
-<h4>Recipe</h4>
-<p>Shake and strain into a salt-rimmed glass.</p>
-</div>
-</div>
-
-<div class="cocktail" data-category="whiskey">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Old Fashioned</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>2 oz Bourbon</li>
-<li>2 dashes Bitters</li>
-<li>Sugar Cube</li>
-</ul>
-<h4>Recipe</h4>
-<p>Stir with ice and garnish with orange peel.</p>
-</div>
-</div>
-
-<div class="cocktail" data-category="signature">
-<div class="cocktail-header" onclick="toggleRecipe(this)">
-<h3>Golden Sunset</h3>
-<span>+</span>
-</div>
-<div class="recipe">
-<h4>Ingredients</h4>
-<ul>
-<li>Vodka</li>
-<li>Peach Schnapps</li>
-<li>Orange Juice</li>
-<li>Grenadine</li>
-</ul>
-<h4>Recipe</h4>
-<p>Shake and serve over ice with a sunset float.</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<section id="pricing">
-<h2 class="section-title">Event Packages</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-<h3>Essential</h3>
-<div class="price">$499+</div>
-<p>Up to 50 Guests</p>
-<p>Professional Bartender</p>
-<p>Basic Bar Setup</p>
-</div>
-
-<div class="price-card">
-<h3>Premium</h3>
-<div class="price">$899+</div>
-<p>Up to 100 Guests</p>
-<p>2 Bartenders</p>
-<p>Custom Cocktail Menu</p>
-</div>
-
-<div class="price-card">
-<h3>Luxury</h3>
-<div class="price">Custom</div>
-<p>Large Events</p>
-<p>Multiple Bars</p>
-<p>Signature Cocktails</p>
-</div>
-
-</div>
-</section>
-
-<section id="contact">
-<h2 class="section-title">Request a Quote</h2>
-
-<form>
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-<input type="tel" placeholder="Phone Number">
-<input type="date">
-<textarea placeholder="Tell us about your event"></textarea>
-<button type="submit">Submit Inquiry</button>
-</form>
-</section>
-
-<footer>
-<p>© 2026 Premier Mobile Bartending | Weddings • Corporate Events • Private Parties</p>
-</footer>
-
-<script>
-
-function toggleRecipe(element){
-const recipe = element.nextElementSibling;
-
-if(recipe.style.display === "block"){
-recipe.style.display = "none";
-} else {
-recipe.style.display = "block";
-}
-}
-
-function filterMenu(category){
-
-const items = document.querySelectorAll(".cocktail");
-
-items.forEach(item=>{
-if(category === "all"){
-item.style.display="block";
-}else{
-item.style.display =
-item.dataset.category === category ? "block" : "none";
-}
-});
-
-document.querySelectorAll(".filter-btn").forEach(btn=>{
-btn.classList.remove("active");
-});
-
-event.target.classList.add("active");
-}
-
-document.getElementById("searchInput").addEventListener("keyup",function(){
-
-let value=this.value.toLowerCase();
-
-document.querySelectorAll(".cocktail").forEach(item=>{
-
-let text=item.innerText.toLowerCase();
-
-item.style.display=text.includes(value)
-? "block"
-: "none";
-
-});
-
-});
-
-</script>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 The Windy City Pour. Serving Chicagoland and surrounding areas. All Rights Reserved.</p>
+    </footer>
 
 </body>
 </html>
