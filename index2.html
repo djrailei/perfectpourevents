@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prestige Mobile Bartending</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --gold:#D4AF37;
+    --black:#0a0a0a;
+    --dark:#141414;
+    --card:#1c1c1c;
+    --text:#f2f2f2;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--black);
+    color:var(--text);
+    font-family:'Poppins',sans-serif;
+}
+
+header{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),
+    url("images/hero.jpg") center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-family:'Cinzel',serif;
+    font-size:4rem;
+    color:var(--gold);
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    max-width:700px;
+    margin:auto;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    background:var(--gold);
+    color:black;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:40px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+}
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:999;
+    background:#000;
+    border-bottom:1px solid rgba(212,175,55,.3);
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    list-style:none;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    padding:18px;
+    display:block;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    color:var(--gold);
+    font-size:2.5rem;
+    margin-bottom:50px;
+    font-family:'Cinzel',serif;
+}
+
+.filter-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+.filter-btn{
+    border:1px solid var(--gold);
+    background:transparent;
+    color:var(--gold);
+    padding:10px 18px;
+    cursor:pointer;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+    background:var(--gold);
+    color:black;
+}
+
+.cocktail-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:var(--card);
+    border-radius:18px;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(212,175,55,.2);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(212,175,55,.15);
+}
+
+.card img{
+    width:100%;
+    height:240px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:20px;
+}
+
+.card h3{
+    color:var(--gold);
+    margin-bottom:10px;
+}
+
+.tag{
+    display:inline-block;
+    background:rgba(212,175,55,.15);
+    color:var(--gold);
+    padding:5px 12px;
+    border-radius:20px;
+    margin-bottom:15px;
+    font-size:.85rem;
+}
+
+.recipe{
+    font-size:.95rem;
+    line-height:1.7;
+}
+
+.about{
+    text-align:center;
+    max-width:900px;
+    margin:auto;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact-box{
+    max-width:600px;
+    margin:auto;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    background:#111;
+    border:1px solid #333;
+    color:white;
+}
+
+footer{
+    background:black;
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(212,175,55,.2);
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+.section-title{
+    font-size:2rem;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="hero">
+<h1>Prestige Mobile Bartending</h1>
+
+<p>
+Luxury mobile bartending for weddings, corporate events,
+private parties, and unforgettable celebrations.
+</p>
+
+<a href="#menu" class="btn">Explore Cocktail Menu</a>
+
+</div>
+
+</header>
+
+<nav>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Cocktails</a></li>
+<li><a href="#signature">Signature Drinks</a></li>
+<li><a href="#contact">Book Event</a></li>
+</ul>
+
+</nav>
+
+<section id="about">
+
+<h2 class="section-title">About Us</h2>
+
+<div class="about">
+
+<p>
+We provide premium mobile bartending services featuring
+craft cocktails, custom drink menus, professional bartenders,
+and elevated guest experiences.
+</p>
+
+</div>
+
+</section>
+
+<section id="menu">
+
+<h2 class="section-title">Classic Cocktails</h2>
+
+<div class="filter-buttons">
+
+<button class="filter-btn active" onclick="filterSelection('all')">All</button>
+<button class="filter-btn" onclick="filterSelection('vodka')">Vodka</button>
+<button class="filter-btn" onclick="filterSelection('gin')">Gin</button>
+<button class="filter-btn" onclick="filterSelection('rum')">Rum</button>
+<button class="filter-btn" onclick="filterSelection('tequila')">Tequila</button>
+<button class="filter-btn" onclick="filterSelection('whiskey')">Whiskey</button>
+
+</div>
+
+<div class="cocktail-grid">
+
+<div class="card cocktail vodka">
+<img src="images/moscow-mule.jpg">
+<div class="card-content">
+<div class="tag">Vodka</div>
+<h3>Moscow Mule</h3>
+<p class="recipe">
+2 oz Vodka<br>
+1/2 oz Lime Juice<br>
+Ginger Beer<br><br>
+Serve in copper mug over ice.
+</p>
+</div>
+</div>
+
+<div class="card cocktail vodka">
+<img src="images/cosmopolitan.jpg">
+<div class="card-content">
+<div class="tag">Vodka</div>
+<h3>Cosmopolitan</h3>
+<p class="recipe">
+Vodka, Triple Sec,
+Cranberry Juice, Lime Juice.
+</p>
+</div>
+</div>
+
+<div class="card cocktail gin">
+<img src="images/negroni.jpg">
+<div class="card-content">
+<div class="tag">Gin</div>
+<h3>Negroni</h3>
+<p class="recipe">
+Gin, Campari,
+Sweet Vermouth.
+</p>
+</div>
+</div>
+
+<div class="card cocktail gin">
+<img src="images/tom-collins.jpg">
+<div class="card-content">
+<div class="tag">Gin</div>
+<h3>Tom Collins</h3>
+<p class="recipe">
+Gin, Lemon Juice,
+Simple Syrup, Soda Water.
+</p>
+</div>
+</div>
+
+<div class="card cocktail rum">
+<img src="images/mojito.jpg">
+<div class="card-content">
+<div class="tag">Rum</div>
+<h3>Mojito</h3>
+<p class="recipe">
+White Rum, Mint,
+Lime, Sugar, Soda.
+</p>
+</div>
+</div>
+
+<div class="card cocktail tequila">
+<img src="images/margarita.jpg">
+<div class="card-content">
+<div class="tag">Tequila</div>
+<h3>Margarita</h3>
+<p class="recipe">
+Tequila, Triple Sec,
+Fresh Lime Juice.
+</p>
+</div>
+</div>
+
+<div class="card cocktail whiskey">
+<img src="images/old-fashioned.jpg">
+<div class="card-content">
+<div class="tag">Whiskey</div>
+<h3>Old Fashioned</h3>
+<p class="recipe">
+Bourbon, Sugar,
+Bitters, Orange Peel.
+</p>
+</div>
+</div>
+
+<div class="card cocktail whiskey">
+<img src="images/manhattan.jpg">
+<div class="card-content">
+<div class="tag">Whiskey</div>
+<h3>Manhattan</h3>
+<p class="recipe">
+Whiskey,
+Sweet Vermouth,
+Bitters.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="signature">
+
+<h2 class="section-title">Signature Cocktails</h2>
+
+<div class="cocktail-grid">
+
+<div class="card">
+<img src="images/golden-hour.jpg">
+<div class="card-content">
+<div class="tag">Signature Vodka</div>
+<h3>Golden Hour</h3>
+<p class="recipe">
+Vanilla Vodka,
+Passionfruit,
+Lemon,
+Sparkling Wine.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="images/sunset-bliss.jpg">
+<div class="card-content">
+<div class="tag">Signature Rum</div>
+<h3>Sunset Bliss</h3>
+<p class="recipe">
+White Rum,
+Mango Puree,
+Pineapple,
+Lime.
+</p>
+</div>
+</div>
+
+<div class="card">
+<img src="images/velvet-smoke.jpg">
+<div class="card-content">
+<div class="tag">Signature Whiskey</div>
+<h3>Velvet Smoke</h3>
+<p class="recipe">
+Bourbon,
+Maple Syrup,
+Cherry Bitters.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Book Your Event</h2>
+
+<div class="contact-box">
+
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email">
+<input type="text" placeholder="Event Date">
+
+<textarea rows="5" placeholder="Tell us about your event"></textarea>
+
+<button class="btn">Request Quote</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>
+© 2026 Prestige Mobile Bartending
+</p>
+
+</footer>
+
+<script>
+
+function filterSelection(category){
+
+let cards=document.querySelectorAll('.cocktail');
+
+cards.forEach(card=>{
+
+if(category==="all"){
+card.style.display="block";
+}
+else{
+card.style.display=
+card.classList.contains(category)
+? "block"
+: "none";
+}
+
+});
+
+document.querySelectorAll(".filter-btn")
+.forEach(btn=>btn.classList.remove("active"));
+
+event.target.classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
